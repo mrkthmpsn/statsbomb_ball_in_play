@@ -1,5 +1,4 @@
-# Welcome to the jungle
-### _We've got code and games_
+# Ball-in-play time project
 
 Code for ball-in-play project using StatsBomb open data. Data and guides can be found in StatsBomb's repo: https://github.com/statsbomb/open-data/. Details of the `statsbombpy` package can be found here: https://github.com/statsbomb/statsbombpy
 
