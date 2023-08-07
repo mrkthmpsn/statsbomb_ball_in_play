@@ -11,7 +11,6 @@ _General notes on how to approach calculating ball-in-play time from events_
 - Shield
 
 
-
 Or should you just look for the end events, cut out any middle events, then look for the time of the following event
 
 _Or,_ you could look at re-start events and then look backwards
@@ -28,6 +27,16 @@ _Or,_ you could look at re-start events and then look backwards
 - Bad Behaviour
 - Starting XI
 - Tactical Shift
+
+## Ball out
+Hat tip to Andy Rowlinson who pointed out to me that StatsBomb events also have an `out` marker, which would speed this process up greatly. Using this, the follow markers would denote something ending:
+- 'Out' boolean
+- Goal
+- Foul
+- Injury stoppage
+- Offside
+
+With the 'Out' boolean you should be able to calculate things in a similar way - although it turns out that passes don't use this boolean but use the 'Out' outcome instead.
 
 # Timing notes
 

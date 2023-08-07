@@ -4,10 +4,11 @@
 Code for ball-in-play project using StatsBomb open data. Data and guides can be found in StatsBomb's repo: https://github.com/statsbomb/open-data/. Details of the `statsbombpy` package can be found here: https://github.com/statsbomb/statsbombpy
 
 ## Intro
-This repo contains three _main_ things to know about, with some smaller ones too.
+This repo contains four _main_ things to know about.
 1) `calculate_match_timings.py` file: contains the function to calculate ball-in-play time from a StatsBomb match events dataframe. A brief explanation on the method will be written just below.
 2) `utils` folder: contains assorted helpful files
-3) `create_analysis.py` file (COMING SOON): implements the functions. It's currently set up for three different types of samples: the collection of matches from the 'StatsBomb Icons' series; the Invincibles season (Arsenal men's 2003/04 Premier League matches); and the full 2015/16 Premier League season.
+3) `create_analysis.py` file: implements the functions. It features a long list of commented-out lines for producing the files used in the newsletter post.
+4) `summary_analysis.py` file: pulls together the match-by-match statistics produced in `create_analysis.py` to produce a summary dataframe for each sample.
 
 For the match ID list for the StatsBomb Icons series, see `utils/constants.py`.
 
