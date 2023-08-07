@@ -13,6 +13,7 @@ MID_BREAK_EVENT_TYPE_LIST = [
 
 # Johan Cruyff article (features IDs): https://statsbomb.com/articles/soccer/statsbomb-icons-johan-cruyff/
 # Diego Maradona article (features IDs): https://statsbomb.com/articles/soccer/statsbomb-icons-diego-maradona/
+# Pelé article (features IDs): https://statsbomb.com/articles/soccer/statsbomb-icons-pele/
 STATSBOMB_ICONS_MATCH_IDS = [
     3888711,
     3750235,
@@ -34,6 +35,16 @@ STATSBOMB_ICONS_MATCH_IDS = [
     3888721,
     3887188,
     3889182,
+    3888705,
+    3888704,
+    3888854,
+    3889218,
+    3889217,
+    3888702,
+    3888701,
+    3888700,
+    3888699,
+    3750234,
 ]
 
 # The below are actually incorrect-ish: Not all of these matches appear to be part of the StatsBomb Icons series
