@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from pydantic import BaseModel, computed_field
 
-from utils.constants import MID_BREAK_EVENT_TYPE_LIST
+from utils.constants import MID_BREAK_EVENT_TYPE_LIST, STATSBOMB_RESTART_PASS_TYPE_LIST
 
 
 class StatsbombMatchTimingsOutput(BaseModel):
@@ -62,11 +62,7 @@ def calculate_statsbomb_match_timings(
         (df["type"] == "Referee Ball-Drop")
         | (
             (df["type"] == "Pass")
-            & (
-                df["pass_type"].isin(
-                    ["Corner", "Free Kick", "Goal Kick", "Kick Off", "Throw-in"]
-                )
-            )
+            & (df["pass_type"].isin(STATSBOMB_RESTART_PASS_TYPE_LIST))
         )
         | (
             (df["type"] == "Shot")
