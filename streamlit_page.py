@@ -63,7 +63,7 @@ def its_a_chart(sample_slug: str) -> Figure:
     return fig
 
 
-st.title("Let's have a sporting kick into touch for ball-in-play measures")
+st.title("Time to give ball-in-play measures a kick into touch?")
 
 with st.expander("Note on World Cup 2018 data"):
     st.markdown(
@@ -91,7 +91,7 @@ st.markdown(
     appear to drift towards an average of 54-56 minutes, within each average is a pretty wide range of ball-in-play 
     values. Many of the sample competitions that we looked at last time had matches with around 45 minutes of in-play 
     time (sometimes called 'effective time'), stretching all the way up to 65. Take a look below: every dot is a single 
-    match. 
+    match. [Data, of course, from [StatsBomb's open dataset](https://github.com/statsbomb/open-data)]
     """
 )
 
@@ -176,7 +176,7 @@ st.markdown(
     - Restarts per minute of ball-in-play time
     
     You can see the total data, each point representing a match. If you want, you can choose a sample to highlight using 
-    the dropdown menu.
+    the dropdown menu. [Data, of course, from [StatsBomb's open dataset](https://github.com/statsbomb/open-data)]
     """
 )
 
@@ -233,7 +233,8 @@ st.write(
     really happening. 
     
     Let's look at this in its purest state then, with the total number of restarts for each match compared to the 
-    in-play time. The link is a little fuzzier than some of the previous charts, but it's still clear: 
+    in-play time. The link is a little fuzzier than some of the previous charts, but it's still clear. [Data, of course, 
+    from [StatsBomb's open dataset](https://github.com/statsbomb/open-data)] 
     """
 )
 
