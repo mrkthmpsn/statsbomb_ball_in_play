@@ -10,8 +10,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-total_sample_df = pd.read_csv('./data/blog_data.csv')
-total_sample_df = total_sample_df[total_sample_df['sample_id'] != 'wc2018']
+total_sample_df = pd.read_csv("./data/blog_data.csv")
+total_sample_df = total_sample_df[total_sample_df["sample_id"] != "wc2018"]
 
 plotting_label_dict = {
     "short_pass_pct": "% passes short",
@@ -19,27 +19,32 @@ plotting_label_dict = {
     "is_restart_pass": "# restarts",
     "restart_p_m": "Restarts p/\nin-play min.",
     "live_pct": "% passes live play",
-    "pct_in_play": "In-play %"
+    "pct_in_play": "In-play %",
 }
 
 # Plotting
 def its_a_chart(sample_slug: str) -> Figure:
     fig, axs = plt.subplots(2, 2, sharex=True)
     for ax, stat_label in zip(
-            [axs[0, 0], axs[0, 1], axs[1, 0], axs[1, 1]],
-            [
-                "short_pass_pct",
-                "ground_pass_pct",
-                "live_pct",
-                "restart_p_m",
-            ],
+        [axs[0, 0], axs[0, 1], axs[1, 0], axs[1, 1]],
+        [
+            "short_pass_pct",
+            "ground_pass_pct",
+            "live_pct",
+            "restart_p_m",
+        ],
     ):
-        ax.grid(visible=True, which='major', axis='x', linestyle='--', c='grey')
+        ax.grid(visible=True, which="major", axis="x", linestyle="--", c="grey")
         ax.set_xlabel("Ball-in-play minutes")
         ax.set_ylabel(plotting_label_dict[stat_label])
 
         sns.scatterplot(
-            data=total_sample_df, x="in_play_time_min", y=stat_label, ax=ax, alpha=0.3, zorder=3
+            data=total_sample_df,
+            x="in_play_time_min",
+            y=stat_label,
+            ax=ax,
+            alpha=0.3,
+            zorder=3,
         )
         if sample_slug:
             sns.scatterplot(
@@ -49,13 +54,14 @@ def its_a_chart(sample_slug: str) -> Figure:
                 ax=ax,
                 alpha=0.5,
                 c="orange",
-                zorder=4
+                zorder=4,
             )
 
     fig.tight_layout()
     fig.subplots_adjust(left=0, bottom=0.1, right=1, top=0.9)
 
     return fig
+
 
 st.title("Let's have a sporting kick into touch for ball-in-play measures")
 
@@ -108,11 +114,32 @@ with st.expander("Data sample names key"):
 
 # There should be an interactive chart here to show that, maybe density plot or something
 in_play_fig, in_play_ax = plt.subplots()
-in_play_ax.grid(visible=True, which='major', axis='x', linestyle='--', c='grey')
+in_play_ax.grid(visible=True, which="major", axis="x", linestyle="--", c="grey")
 in_play_ax.set_xlabel("Ball-in-play minutes")
 in_play_ax.set_ylabel("Sample")
-in_play_ax.set_yticklabels(["EPL 2015/16", "Invincibles", "ISL 2021/22", "WSL 2020/21", "WC 2019", "WC 2022", "'Messi' 2011/12", "LaLiga 2015/16", "'StatsBomb Icons'"])
-sns.swarmplot(data=total_sample_df, x="in_play_time_min", y="sample_id", ax=in_play_ax, alpha=0.7, size=4, hue="sample_id", legend=False)
+in_play_ax.set_yticklabels(
+    [
+        "EPL 2015/16",
+        "Invincibles",
+        "ISL 2021/22",
+        "WSL 2020/21",
+        "WC 2019",
+        "WC 2022",
+        "'Messi' 2011/12",
+        "LaLiga 2015/16",
+        "'StatsBomb Icons'",
+    ]
+)
+sns.swarmplot(
+    data=total_sample_df,
+    x="in_play_time_min",
+    y="sample_id",
+    ax=in_play_ax,
+    alpha=0.7,
+    size=4,
+    hue="sample_id",
+    legend=False,
+)
 in_play_fig.tight_layout()
 in_play_fig.subplots_adjust(left=0, bottom=0.05, right=1, top=0.95)
 
@@ -163,7 +190,7 @@ sample_slug_label_dict = {
     "Men's World Cup 2022": "wc2022",
     "StatsBomb Icons sample (Cruyff, Maradona, Pelé)": "statsbombicons",
     "Indian Super League 2021/22": "isl2122",
-    "English Women's Super League 2020/21": "wsl2021"
+    "English Women's Super League 2020/21": "wsl2021",
 }
 
 selected_sample = st.selectbox(
@@ -212,11 +239,16 @@ st.write(
 
 # Show that chart
 restarts_fig, restarts_ax = plt.subplots()
-restarts_ax.grid(visible=True, which='major', axis='x', linestyle='--', c='grey')
+restarts_ax.grid(visible=True, which="major", axis="x", linestyle="--", c="grey")
 restarts_ax.set_xlabel("Ball-in-play minutes")
 restarts_ax.set_ylabel("Total restarts")
 sns.scatterplot(
-    data=total_sample_df, x="in_play_time_min", y="is_restart_pass", ax=restarts_ax, alpha=0.3, zorder=3
+    data=total_sample_df,
+    x="in_play_time_min",
+    y="is_restart_pass",
+    ax=restarts_ax,
+    alpha=0.3,
+    zorder=3,
 )
 restarts_fig.tight_layout()
 restarts_fig.subplots_adjust(left=0, bottom=0.1, right=1, top=0.9)
